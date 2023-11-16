@@ -1,14 +1,14 @@
+import java.awt.print.Book;
 import java.util.Scanner;
 
 public class Booking {
-    private String bookingID, clientID, agencyID, roomID, hotelID, clientName, agencyName, hotelName, checkIn;
-    private int roomNights;
-    private float price;
+    private String bookingID, clientID, agencyID, price, roomID, hotelID, clientName, agencyName, hotelName, checkIn, roomNights;
 
-    public Booking(String bookingID, String clientID, String agencyID, String roomID, String hotelID, String clientName, String agencyName, String hotelName, String checkIn, int roomNights, float price) {
+    public Booking(String bookingID, String clientID, String agencyID, String price, String roomID, String hotelID, String clientName, String agencyName, String hotelName, String checkIn, String roomNights) {
         this.bookingID = bookingID;
         this.clientID = clientID;
         this.agencyID = agencyID;
+        this.price = price;
         this.roomID = roomID;
         this.hotelID = hotelID;
         this.clientName = clientName;
@@ -16,7 +16,10 @@ public class Booking {
         this.hotelName = hotelName;
         this.checkIn = checkIn;
         this.roomNights = roomNights;
-        this.price = price;
+    }
+
+    public Booking()  {
+        // Null constructor
     }
 
     public void printBooking() {
@@ -33,13 +36,13 @@ public class Booking {
     }
 
     public String getRoomType() {
-        if (roomID == "1") {
+        if (roomID.equals("1")) {
             return "Double";
-        } else if (roomID == "2") {
+        } else if (roomID.equals("2")) {
             return "Apartament";
-        } else if (roomID == "3") {
-            return "Apartament";
-        } else if (roomID == "4") {
+        } else if (roomID.equals("3")) {
+            return "Individual";
+        } else if (roomID.equals("4")) {
             return "Suite";
         }
 
@@ -110,19 +113,27 @@ public class Booking {
         this.checkIn = checkIn;
     }
 
-    public int getRoomNights() {
+    public String getRoomNights() {
         return roomNights;
     }
 
-    public void setRoomNights(int roomNights) {
+    public void setRoomNights(String roomNights) {
         this.roomNights = roomNights;
     }
 
-    public float getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(String price) {
         this.price = price;
+    }
+
+    public String getHotelName() {
+        return hotelName;
+    }
+
+    public void setHotelName(String hotelName) {
+        this.hotelName = hotelName;
     }
 }
